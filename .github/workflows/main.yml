@@ -1,0 +1,26 @@
+name: Helliwood-Platform
+
+on:
+  push:
+    branches:
+      - prod
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+# Step 01
+      - name: Build Dockers
+        run: docker compose -f docker-compose.prod.yaml build
+# Step 02
+      - name: Stop Dockers
+        run: docker compose -f docker-compose.prod.yml down
+# Step 03
+      - name: Run Dockers
+        run: docker compose -f docker-compose.prod.yml up -d
+# Step 04
+      - name: Clean Dockers
+        run: docker container prune -f
+        run: docker image prune -f
