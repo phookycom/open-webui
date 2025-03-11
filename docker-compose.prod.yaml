@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - .env
+      - /home/helliwood/.env/.plattform
     container_name: open-webui
     volumes:
       - open-webui:/app/backend/data
