@@ -1,0 +1,18 @@
+services:
+  open-webui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    container_name: open-webui
+    volumes:
+      - open-webui:/app/backend/data
+    ports:
+      - 4000:8080
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+
+volumes:
+  open-webui:
