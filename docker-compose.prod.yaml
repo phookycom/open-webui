@@ -5,9 +5,9 @@ services:
       dockerfile: Dockerfile
     env_file:
       - /home/helliwood/.env/.plattform
-    container_name: open-webui
+    container_name: helliwood-platform
     volumes:
-      - open-webui:/app/backend/data
+      - helliwood-platform:/app/backend/data
     ports:
       - 4000:8080
     extra_hosts:
@@ -15,4 +15,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  open-webui:
+  helliwood-platform:
